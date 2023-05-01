@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram</title>
+  <link rel="stylesheet" href="<?php echo gethostname(); ?>/style.css">
+</head>
+<style>
+  .post {
+  }
+
+  .dots {
+    display: inline-block;
+  }
+
+  .more-text {
+    display: none;
+  }
+
+  .read-more {
+    display: none;
+  }
+</style>
+
+<body>
+  <div class="card">
+    <div class="top">
+      <div class="userDeatils">
+        <div class="profileImg">
+          <img src="<?php echo gethostname(); ?>/images/polluxmall.jpg" alt="user" class="cover">
+        </div>
+        <h3>Pollux Mall Paragon<br><span>Pusat Perbelanjaan</span></h3>
+      </div>
+      <div class="dot">
+        <img src="dot.png" alt="dot">
+      </div>
+    </div>
+    <div class="imgBg">
+    <video alt="bg" class="cover" controls autoplay>
+      <source src="<?php echo gethostname(); ?>images/2.mp4" type="video/mp4">
+    </video>
+    </div>
+    <div class="btns">
+      <div class="left">
+        <img src="heart.png" alt="heart" class="heart" onclick="likeButton()">
+        <img src="comment.png" alt="comment">
+        <img src="share.png" alt="share">
+      </div>
+      <div class="right">
+        <img src="bookmark.png" alt="bookmark">
+      </div>
+    </div>
+    <h4 class="likes">3.334 suka</h4>
+    <div class="message post">
+      <p>
+        <b>polluxmallparagon
+        </b>
+        Buat buka puasamu lebih berkesan dan pastinya lebih kenyang dengan paket hemat special Ramadhan Pempek Ny. Kamto 🤩 <br>
+        <div class="dots">...</div>
+        <div class="more-text">
+          <br>
+          Syarat dan ketentuannya di bawah ini: 
+          <br>
+          ✅ Berlaku 23 Maret - 18 April 2023 
+          <br>
+          ✅ Berlaku di seluruh outlet Pempek Ny. Kamto 
+          <br>
+          ✅ Dine in / take away 
+          <br>
+          ✅ Tidak berlaku di Go-Food, Grab-Food, dan Shopeefood 
+          <br>
+          ✅ Tidak diperkenankan pembayaran menggunakan Shopeepay 
+          <br>
+          ✅ Tidak bisa digabung dengan promo lainnya 
+          <br>
+          ✅ Selama persediaan masih ada
+          <br><br>
+          <span>#promopempek </span><span>#diskonpempek </span><span>#promoramadhan </span><span>#pempek_nykamto
+          </span><span>#pempeknykamto </span><span>#jajanpempek </span>
+        </div>
+      </p>
+        <p class="read-more">Selengkapnya</p>
+    </div>
+    <h4 class="comments">Lihat semua 50 komentar</h4>
+    <div class="addComments">
+      <div class="userImg">
+        <img src="User.jpg" alt="user" class="cover">
+      </div>
+      <input type="text" class="text" placeholder="Tambahkan komentar...">
+    </div>
+    <h5 class="postTime">5 April</h5>
+  </div>
+  <script>
+    const post = document.querySelector('.post');
+    const dots = post.querySelector('.dots');
+    const moreText = post.querySelector('.more-text');
+    const readMoreBtn = post.querySelector('.read-more');
+
+    function showMore() {
+      dots.style.display = 'none';
+      moreText.style.display = 'inline';
+      readMoreBtn.innerHTML = 'Lebih sedikit';
+    }
+
+    function showLess() {
+      dots.style.display = 'inline';
+      moreText.style.display = 'none';
+      readMoreBtn.innerHTML = 'Selengkapnya';
+    }
+
+    if (moreText.textContent.length > 150) {
+      readMoreBtn.style.display = 'inline';
+      readMoreBtn.addEventListener('click', () => {
+        if (dots.style.display === 'none') {
+          showLess();
+        } else {
+          showMore();
+        }
+      });
+    }
+
+  </script>
+  <script>
+    function likeButton() {
+      let heart = document.querySelector('.heart');
+      let likes = document.querySelector('.likes');
+      if (heart.src.match("heart.png")) {
+        heart.src = "heart_red.png";
+        likes.innerHTML = "3.335 suka";
+      } else {
+        heart.src = "heart.png";
+        likes.innerHTML = "3.334 suka"
+      }
+    }
+  </script>
+</body>
+
+</html>
